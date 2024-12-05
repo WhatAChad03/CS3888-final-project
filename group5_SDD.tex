@@ -1,0 +1,89 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{array}
+
+\title{Software Design Document}
+\author{Group 5: Gabe Foreman, Lester Low, Jose Oscanoa, Christine Vu}
+\date{November 21, 2024}
+
+\begin{document}
+
+\maketitle
+\tableofcontents
+\newpage
+
+\section{Version Description}
+\begin{table}[h!]
+    \centering
+    \begin{tabular}{c|c|c}
+    \hline
+    Version Number & Description & Date Added \\ \hline
+    Data 1 & Date 2 & Data 3 \\ \hline
+    Data 4 & Date 5 & Data 6 \\ \hline
+    \end{tabular}
+    \label{tab:my_label}
+\end{table}
+
+\section{Sections}
+\subsection{Introduction}
+\begin{itemize}
+    \item \textbf{Purpose of the Document}         
+            
+            The purpose of this document is to outline the requirements for the final project. It serves as a reference for the team.
+            
+    \item \textbf{Intended Audience} 
+            
+            This document is intended for software developers.
+            
+    \item \textbf{Overview of the Software}
+            
+            This project is a web and mobile application that allows anyone to post fun and interesting events or stories.
+
+\end{itemize}
+
+\subsection{System Architecture}
+\begin{itemize}
+    \item \textbf{User Interface:}
+
+            The system consists of several components working together to achieve its functionality. The user interacts with the front-end interface, which communicates with the back-end server to process and store data. 
+
+    \item \textbf{Software Interfaces:}
+        \begin{itemize}
+            \item \textbf{Client-side}: The client-side includes the web and mobile application interfaces, where users can upload and interact with content.
+            \item \textbf{Server-side}: The server processes requests, handles user authentication, and stores content in the database.
+            \item \textbf{Database}: The database stores user data, posts, and other relevant information, ensuring quick access and retrieval.
+        \end{itemize}
+
+\end{itemize}
+
+\subsection{User Interface}
+\begin{itemize}
+    \item \textbf{How to Use the System}
+        
+            Users can create an account, post content, interact with other posts, and manage their personal settings.
+        
+    \item \textbf{Database Design and Explanation}
+        
+            The database is structured into tables for users, posts, comments, and likes. The relationships between these tables allow for efficient querying and data retrieval.
+        
+\end{itemize}
+
+\subsection{Glossary}
+\begin{tabular}{|c|c|}
+    \hline
+    \textbf{Acronym/Term} & \textbf{Definition} \\
+    \hline
+    UI & User Interface \\
+    API & Application Programming Interface \\
+    GDPR & General Data Protection Regulation \\
+    \hline
+\end{tabular}
+
+\subsection{References}
+    \begin{itemize}
+        \item [Book Title]
+        \item [Online Resource]
+        \item [Documentation]
+    \end{itemize}
+    
+\end{document}

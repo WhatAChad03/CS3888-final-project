@@ -1,0 +1,132 @@
+\documentclass{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+\geometry{a4paper, margin=1in}
+
+\title{Design Specification}
+\author{Group 5: Gabe Foreman, Lester Low, Jose Oscanoa, Christine Vu}
+\date{November 21, 2024}
+
+\begin{document}
+
+\maketitle
+\tableofcontents
+\newpage
+
+\section{Introduction}
+This project is a web and mobile application that provides a platform for individuals to share stories, events, and safe spaces. This document outlines the design specifications, breaking down each component and listing the dependencies and libraries required to deploy the project in a Docker container.
+
+\section{Project Overview}
+The project includes:
+\begin{itemize}
+    \item An interactive map to pin location and story.
+    \item User profiles for managing posts and privacy settings.
+    \item A database for storing user data and post information.
+    \item Back-end APIs to handle data requests and user authentication.
+\end{itemize}
+
+\section{Breakdown of Components}
+
+\subsection{Frontend}
+\textbf{Tools and Libraries:}
+\begin{itemize}
+    \item React.js - For building the user interface.
+    \item Leaflet.js - For the interactive map integration.
+    \item Axios - For API requests.
+    \item Material-UI - For styling components.
+\end{itemize}
+
+\textbf{Pages:}
+\begin{itemize}
+    \item Home: Displays a list of recent posts and highlights featured pins.
+    \item Map: Shows an interactive map where users can add and view pins.
+    \item Profile: Allows users to manage their posts and account settings.
+    \item Safe Spaces: Lists resources and verified locations for LGBTQ+ support.
+    \item Login/Sign-Up: Provides access to account creation and login functionalities.
+\end{itemize}
+
+\subsection{Backend}
+\textbf{Tools and Libraries:}
+\begin{itemize}
+    \item Node.js - For the server runtime.
+    \item Express.js - For creating RESTful APIs.
+    \item MongoDB - For the database.
+    \item Mongoose - For object modeling and schema management.
+    \item JSON Web Tokens (JWT) - For authentication and session management.
+    \item bcrypt.js - For password hashing.
+\end{itemize}
+
+\textbf{Endpoints:}
+\begin{itemize}
+    \item \texttt{POST /api/auth/register} - User registration.
+    \item \texttt{POST /api/auth/login} - User login.
+    \item \texttt{GET /api/posts} - Fetches recent pins and stories.
+    \item \texttt{POST /api/posts} - Adds a new pin/story.
+    \item \texttt{GET /api/resources} - Lists safe spaces and resources.
+\end{itemize}
+
+\subsection{3.3 Database}
+\textbf{Tools:}
+\begin{itemize}
+    \item MongoDB - NoSQL database for scalability and flexibility.
+\end{itemize}
+
+\textbf{Collections:}
+\begin{itemize}
+    \item \textbf{Users}: Stores user data (e.g., name, email, hashed password).
+    \item \textbf{Pins}: Stores pin details, including location, description, and tags.
+    \item \textbf{Resources}: Stores verified safe spaces and resources.
+\end{itemize}
+
+\section{Dependencies for Docker}
+
+\subsection{Frontend}
+\begin{verbatim}
+FROM node:16
+WORKDIR /app
+COPY ./frontend /app
+RUN npm install
+CMD ["npm", "start"]
+\end{verbatim}
+
+\textbf{Libraries:}
+\begin{itemize}
+    \item react
+    \item leaflet
+    \item axios
+    \item @mui/material
+\end{itemize}
+
+\subsection{Backend}
+\begin{verbatim}
+FROM node:16
+WORKDIR /app
+COPY ./backend /app
+RUN npm install
+CMD ["node", "server.js"]
+\end{verbatim}
+
+\textbf{Libraries:}
+\begin{itemize}
+    \item express
+    \item mongoose
+    \item bcryptjs
+    \item jsonwebtoken
+\end{itemize}
+
+\subsection{Database}
+\begin{verbatim}
+FROM mongo:5
+CMD ["mongod"]
+\end{verbatim}
+
+\textbf{Tools:}
+\begin{itemize}
+    \item MongoDB - Preinstalled in the official MongoDB Docker image.
+\end{itemize}
+
+\section*{Conclusion}
+This design spec provides a detailed breakdown of the components, pages, and required libraries. With this information, the project can be successfully built, deployed, and maintained in a Dockerized environment.
+
+\end{document}
